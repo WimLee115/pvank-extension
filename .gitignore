@@ -9,3 +9,4 @@ releases
 .idea
 .env
 .env.local
+coverage/
