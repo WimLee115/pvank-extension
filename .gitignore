@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-chrome
+dist-firefox
+releases
+*.log
+.DS_Store
+.vscode
+.idea
+.env
+.env.local

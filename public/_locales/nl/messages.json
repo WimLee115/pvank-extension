@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "PVANK — Verzegel deze pagina",
+    "description": "Naam van de extensie."
+  },
+  "extDescription": {
+    "message": "Cryptografisch bewijs van wat je nu ziet — SHA-256 + OpenTimestamps + Bitcoin-blockchain.",
+    "description": "Korte omschrijving."
+  },
+  "actionTitle": {
+    "message": "Verzegel deze pagina",
+    "description": "Tooltip op het toolbar-icoon."
+  }
+}

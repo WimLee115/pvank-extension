@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "PVANK — Seal this page",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "Cryptographic proof of what you're seeing now — SHA-256 + OpenTimestamps + Bitcoin blockchain.",
+    "description": "Short description."
+  },
+  "actionTitle": {
+    "message": "Seal this page",
+    "description": "Tooltip on toolbar icon."
+  }
+}

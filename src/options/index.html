@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PVANK · settings</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <pre class="logo" aria-hidden="true">░▒▓ PVANK ▓▒░</pre>
+        <p class="tag" data-i18n="optTitle">instellingen</p>
+      </header>
+
+      <section class="card">
+        <h2 data-i18n="optLanguage">taal</h2>
+        <div class="opts" role="radiogroup">
+          <label>
+            <input type="radio" name="locale" value="auto" />
+            <span data-i18n="optLanguageAuto">automatisch</span>
+          </label>
+          <label>
+            <input type="radio" name="locale" value="nl" />
+            <span data-i18n="optLanguageNL">Nederlands</span>
+          </label>
+          <label>
+            <input type="radio" name="locale" value="en" />
+            <span data-i18n="optLanguageEN">English</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="optHistory">geschiedenis</h2>
+        <label class="check">
+          <input type="checkbox" id="history-enabled" />
+          <span data-i18n="optHistoryEnabled">bewaar laatste 20 bewijzen lokaal</span>
+        </label>
+        <p class="hint" data-i18n="optHistoryHint">alleen metadata.</p>
+        <button class="ghost-btn" id="clear-history" type="button">
+          <span data-i18n="clearHistory">wis geschiedenis</span>
+        </button>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="optAbout">over</h2>
+        <p class="about">
+          PVANK · Verzegel deze pagina<br />
+          <span class="dim">v<span id="version"></span> · AGPL-3.0 · made in NL</span>
+        </p>
+        <p class="links">
+          <a href="https://github.com/WimLee115/pvank-extension" target="_blank" rel="noreferrer noopener">github · pvank-extension</a><br />
+          <a href="https://github.com/WimLee115/pvank" target="_blank" rel="noreferrer noopener">github · pvank (webapp)</a><br />
+          <a href="https://opentimestamps.org" target="_blank" rel="noreferrer noopener">opentimestamps.org</a>
+        </p>
+      </section>
+
+      <div class="save-row">
+        <button class="primary-btn" id="save" type="button">
+          <span data-i18n="optSave">opslaan</span>
+        </button>
+        <span id="saved-flash" class="saved-flash"></span>
+      </div>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

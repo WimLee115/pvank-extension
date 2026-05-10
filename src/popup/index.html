@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PVANK</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <pre class="logo" aria-hidden="true">░▒▓ PVANK ▓▒░</pre>
+      <p class="tag" data-i18n="tagline"></p>
+    </header>
+
+    <main>
+      <article id="page-card" class="card">
+        <div class="favicon" id="favicon" aria-hidden="true">▓</div>
+        <div class="page-info">
+          <p class="page-host" id="host">…</p>
+          <p class="page-path" id="path"></p>
+          <p class="page-meta" id="page-meta"></p>
+        </div>
+      </article>
+
+      <section id="action">
+        <button id="seal" type="button">
+          <span data-i18n="sealAction">▒▒ ANKER NEERLATEN ▒▒</span>
+        </button>
+      </section>
+
+      <section id="status" hidden>
+        <div class="status-row">
+          <span class="anchor" aria-hidden="true">⚓</span>
+          <p class="status-step" id="step">…</p>
+        </div>
+        <div class="termbar" id="termbar" aria-hidden="true">
+          <span class="termbar-fill" id="termbar-fill"></span>
+          <span class="termbar-empty" id="termbar-empty"></span>
+        </div>
+        <p class="termbar-pct" id="pct">0%</p>
+      </section>
+
+      <section id="result" hidden>
+        <div class="result-head">
+          <span class="result-icon" aria-hidden="true">✔</span>
+          <span class="result-label" data-i18n="sealed">verzegeld</span>
+        </div>
+        <p class="result-filename" id="filename"></p>
+        <div class="digest-row">
+          <span class="digest-label" data-i18n="manifestDigest">digest</span>
+          <code class="digest" id="digest" title="SHA-256"></code>
+        </div>
+        <div class="ghost-actions">
+          <button class="ghost-btn" id="copy-digest" type="button">
+            <span data-i18n="copyDigest">kopieer digest</span>
+          </button>
+          <button class="ghost-btn" id="open-verifier" type="button">
+            <span data-i18n="openVerifier">open verifier</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="error" hidden>
+        <div class="error-head">
+          <span class="error-icon" aria-hidden="true">✖</span>
+          <span class="error-label" data-i18n="errFailed">verzegelen mislukt</span>
+        </div>
+        <p class="error-message" id="error-msg"></p>
+      </section>
+
+      <details id="history-panel" class="card">
+        <summary>
+          <span data-i18n="recentSeals">recente bewijzen</span>
+          <span class="count" id="history-count"></span>
+        </summary>
+        <ul id="history-list"></ul>
+      </details>
+    </main>
+
+    <footer>
+      <a id="settings-link" href="#" data-i18n="settings">instellingen</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a id="about-link" href="https://github.com/WimLee115/pvank-extension" target="_blank" rel="noreferrer noopener" data-i18n="about">over</a>
+    </footer>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
