@@ -36,6 +36,7 @@ const copies = [
   ["public/icons", "icons"],
   ["public/_locales", "_locales"],
   ["public/verify.html", "verify.html"],
+  ["public/decrypt.html", "decrypt.html"],
 ];
 for (const [src, dst] of copies) {
   const from = resolve(root, src);

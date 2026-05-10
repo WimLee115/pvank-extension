@@ -6,7 +6,7 @@
     <title>PVANK</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body class="boot">
     <header>
       <pre class="logo" aria-hidden="true">░▒▓ PVANK ▓▒░</pre>
       <p class="tag" data-i18n="tagline"></p>
@@ -26,12 +26,16 @@
         <button id="seal" type="button">
           <span data-i18n="sealAction">▒▒ ANKER NEERLATEN ▒▒</span>
         </button>
+        <p class="shortcut-hint">
+          <kbd>⌃</kbd><kbd>⇧</kbd><kbd>P</kbd>
+        </p>
       </section>
 
-      <section id="status" hidden>
+      <section id="status" hidden aria-live="polite">
         <div class="status-row">
           <span class="anchor" aria-hidden="true">⚓</span>
           <p class="status-step" id="step">…</p>
+          <span class="status-sub" id="sub" aria-hidden="true"></span>
         </div>
         <div class="termbar" id="termbar" aria-hidden="true">
           <span class="termbar-fill" id="termbar-fill"></span>
@@ -44,6 +48,7 @@
         <div class="result-head">
           <span class="result-icon" aria-hidden="true">✔</span>
           <span class="result-label" data-i18n="sealed">verzegeld</span>
+          <span class="result-badge" id="enc-badge" hidden>AES-256</span>
         </div>
         <p class="result-filename" id="filename"></p>
         <div class="digest-row">
@@ -82,6 +87,8 @@
       <span class="dot" aria-hidden="true">·</span>
       <a id="about-link" href="https://github.com/WimLee115/pvank-extension" target="_blank" rel="noreferrer noopener" data-i18n="about">over</a>
     </footer>
+
+    <p class="signature" data-i18n="signedBy">met de groeten van WimLee115</p>
 
     <script type="module" src="./main.ts"></script>
   </body>

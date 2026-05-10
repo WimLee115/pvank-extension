@@ -1,5 +1,5 @@
 import { sealActiveTab } from "../lib/seal.js";
-import { applyTranslations, t, activeLocale } from "../lib/i18n.js";
+import { applyTranslations, t, activeLocale, loadSettings } from "../lib/i18n.js";
 import { loadHistory, type HistoryEntry } from "../lib/history.js";
 
 const $ = <T extends HTMLElement>(sel: string): T => {
@@ -17,12 +17,14 @@ const els = {
   action: $<HTMLElement>("#action"),
   status: $<HTMLElement>("#status"),
   step: $<HTMLParagraphElement>("#step"),
+  sub: $<HTMLSpanElement>("#sub"),
   fill: $<HTMLSpanElement>("#termbar-fill"),
   empty: $<HTMLSpanElement>("#termbar-empty"),
   pct: $<HTMLParagraphElement>("#pct"),
   result: $<HTMLElement>("#result"),
   filename: $<HTMLParagraphElement>("#filename"),
   digest: $<HTMLElement>("#digest"),
+  encBadge: $<HTMLSpanElement>("#enc-badge"),
   copyBtn: $<HTMLButtonElement>("#copy-digest"),
   verifyBtn: $<HTMLButtonElement>("#open-verifier"),
   error: $<HTMLElement>("#error"),
@@ -33,7 +35,7 @@ const els = {
   settings: $<HTMLAnchorElement>("#settings-link"),
 };
 
-const TERMBAR_WIDTH = 26;
+const TERMBAR_WIDTH = 30;
 let lastDigest = "";
 
 (async () => {
@@ -59,8 +61,9 @@ async function renderTab(): Promise<void> {
 
     const u = new URL(tab.url);
     els.host.textContent = u.hostname;
-    els.path.textContent = u.pathname + u.search + u.hash || "/";
-    els.path.title = els.path.textContent;
+    const path = u.pathname + u.search + u.hash;
+    els.path.textContent = path || "/";
+    els.path.title = path || "/";
 
     const tlsOk = u.protocol === "https:";
     const lang = await activeLocale();
@@ -93,6 +96,10 @@ els.seal.addEventListener("click", async () => {
     const result = await sealActiveTab(updateProgress);
     await showResult(result);
     await renderHistory();
+    const settings = await loadSettings();
+    if (settings.autoOpenVerifier && !result.encrypted) {
+      void chrome.tabs.create({ url: chrome.runtime.getURL("verify.html") });
+    }
   } catch (err) {
     await showError(err instanceof Error ? err.message : String(err));
   } finally {
@@ -110,7 +117,7 @@ els.copyBtn.addEventListener("click", async () => {
   setTimeout(() => {
     els.copyBtn.classList.remove("copied");
     span.textContent = original;
-  }, 1200);
+  }, 1300);
 });
 
 els.verifyBtn.addEventListener("click", () => {
@@ -122,8 +129,9 @@ els.settings.addEventListener("click", (e) => {
   void chrome.runtime.openOptionsPage();
 });
 
-async function updateProgress(step: string, pct: number): Promise<void> {
+async function updateProgress(step: string, pct: number, sub?: string): Promise<void> {
   els.step.textContent = await t(`step.${step}`);
+  els.sub.textContent = sub ?? "";
   const filled = Math.round((pct / 100) * TERMBAR_WIDTH);
   els.fill.textContent = "█".repeat(filled);
   els.empty.textContent = "░".repeat(TERMBAR_WIDTH - filled);
@@ -138,12 +146,14 @@ function showStatus(): void {
 async function showResult(r: {
   filename: string;
   digest: string;
+  encrypted: boolean;
 }): Promise<void> {
   hideAll();
   els.result.hidden = false;
   els.action.hidden = false;
   els.filename.textContent = r.filename;
   els.digest.textContent = r.digest;
+  els.encBadge.hidden = !r.encrypted;
   lastDigest = r.digest;
 }
 

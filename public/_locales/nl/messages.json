@@ -10,5 +10,9 @@
   "actionTitle": {
     "message": "Verzegel deze pagina",
     "description": "Tooltip op het toolbar-icoon."
+  },
+  "cmdSealPage": {
+    "message": "Verzegel deze pagina",
+    "description": "Keyboard-shortcut beschrijving."
   }
 }

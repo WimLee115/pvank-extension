@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "PVANK",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "__MSG_extDescription__",
   "default_locale": "nl",
   "icons": {
@@ -27,11 +27,28 @@
     "activeTab",
     "scripting",
     "contextMenus",
-    "storage"
+    "storage",
+    "notifications",
+    "downloads"
   ],
   "host_permissions": [
     "https://*.opentimestamps.org/*"
   ],
+  "web_accessible_resources": [
+    {
+      "resources": ["verify.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "seal-page": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "__MSG_cmdSealPage__"
+    }
+  },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://*.opentimestamps.org"
   }

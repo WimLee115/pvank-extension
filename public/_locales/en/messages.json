@@ -10,5 +10,9 @@
   "actionTitle": {
     "message": "Seal this page",
     "description": "Tooltip on toolbar icon."
+  },
+  "cmdSealPage": {
+    "message": "Seal this page",
+    "description": "Keyboard shortcut description."
   }
 }

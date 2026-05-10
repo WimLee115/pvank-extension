@@ -32,6 +32,54 @@
       </section>
 
       <section class="card">
+        <h2 data-i18n="optScreenshot">screenshot</h2>
+        <div class="opts" role="radiogroup">
+          <label>
+            <input type="radio" name="ssMode" value="viewport" />
+            <span data-i18n="optScreenshotViewport">alleen zichtbare deel</span>
+          </label>
+          <label>
+            <input type="radio" name="ssMode" value="full" />
+            <span data-i18n="optScreenshotFull">volledige pagina</span>
+          </label>
+        </div>
+        <p class="hint" data-i18n="optScreenshotHint">full-page is langzamer.</p>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="optEncrypt">encryptie</h2>
+        <label class="check">
+          <input type="checkbox" id="encrypt-enabled" />
+          <span data-i18n="optEncryptEnabled">versleutel met wachtwoord</span>
+        </label>
+        <div class="pw-row" id="pw-row" hidden>
+          <label class="pw-label">
+            <span class="pw-label-text" data-i18n="optEncryptPassword">wachtwoord</span>
+            <input type="password" id="password" autocomplete="new-password" minlength="8" />
+          </label>
+          <p class="hint" data-i18n="optEncryptPasswordHint">≥8 tekens. Niet opgeslagen — vergeten = verloren.</p>
+        </div>
+        <p class="hint" data-i18n="optEncryptHint">output wordt .pvenc; open met decrypt.html.</p>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="optAutoVerify">verifier</h2>
+        <label class="check">
+          <input type="checkbox" id="auto-verify" />
+          <span data-i18n="optAutoVerify">automatisch verifier openen</span>
+        </label>
+        <p class="hint" data-i18n="optAutoVerifyHint">na verzegelen.</p>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="optNotifications">notificaties</h2>
+        <label class="check">
+          <input type="checkbox" id="notif-enabled" />
+          <span data-i18n="optNotificationsEnabled">browser-notificatie tonen</span>
+        </label>
+      </section>
+
+      <section class="card">
         <h2 data-i18n="optHistory">geschiedenis</h2>
         <label class="check">
           <input type="checkbox" id="history-enabled" />
@@ -44,9 +92,18 @@
       </section>
 
       <section class="card">
+        <h2 data-i18n="optShortcut">sneltoets</h2>
+        <p class="kbd-row">
+          <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+          <span class="dim">— <span data-i18n="cmdSealPage">verzegel deze pagina</span></span>
+        </p>
+        <p class="hint" data-i18n="optShortcutHint">aanpasbaar via chrome://extensions/shortcuts.</p>
+      </section>
+
+      <section class="card">
         <h2 data-i18n="optAbout">over</h2>
         <p class="about">
-          PVANK · Verzegel deze pagina<br />
+          PVANK · <span data-i18n="actionTitle">verzegel deze pagina</span><br />
           <span class="dim">v<span id="version"></span> · AGPL-3.0 · made in NL</span>
         </p>
         <p class="links">
@@ -54,6 +111,7 @@
           <a href="https://github.com/WimLee115/pvank" target="_blank" rel="noreferrer noopener">github · pvank (webapp)</a><br />
           <a href="https://opentimestamps.org" target="_blank" rel="noreferrer noopener">opentimestamps.org</a>
         </p>
+        <p class="signature" data-i18n="signedBy">met de groeten van WimLee115</p>
       </section>
 
       <div class="save-row">
