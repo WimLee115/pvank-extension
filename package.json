@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.1.42",
-    "@types/firefox-webext-browser": "^120.0.4",
+    "@types/firefox-webext-browser": "^143.0.0",
     "@types/node": "^25.6.2",
     "@vitest/coverage-v8": "^4.1.5",
     "happy-dom": "^20.9.0",

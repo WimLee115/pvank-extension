@@ -9,7 +9,7 @@ verzegel deze pagina
 **Eén klik, cryptografisch bewijs van wat je nu ziet.**
 
 [![License](https://img.shields.io/badge/License-AGPL_3.0-FF6B35?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.2.0-0b7fdb?style=flat-square)](https://github.com/WimLee115/pvank-extension/releases)
+[![Version](https://img.shields.io/badge/version-0.3.0-0b7fdb?style=flat-square)](https://github.com/WimLee115/pvank-extension/releases)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-00FF41?style=flat-square)](https://developer.chrome.com/docs/extensions/mv3)
 [![Chrome](https://img.shields.io/badge/Chrome-Edge-0b7fdb?style=flat-square)](#installatie)
 [![Firefox](https://img.shields.io/badge/Firefox-MV3-7C3AED?style=flat-square)](#installatie)
